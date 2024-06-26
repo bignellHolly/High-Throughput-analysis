@@ -1,0 +1,38 @@
+#! /bin/bash
+# the line above just says run this script with bash
+
+# the options below are for the HPC queueing system
+# the one you are most likely to need to change is run time h_rt
+# this is set to 2 hours at the moment - the job is killed if it takes longer
+# set it to the shortest time you can that is longer than the job will take
+# if you set it to a very large value then your job will wait for ever on the queue to start
+# OPTIONS FOR GRID ENGINE ==============================================================
+#
+#$ -S /bin/bash
+#$ -l h_rt=2:00:00
+#$ -l h_vmem=16G
+#$ -pe smp 8
+#$ -cwd
+#$ -j y
+#$ -V
+# OPTIONS FOR GRID ENGINE=================================================================
+# echo "Running on `hostname`"
+
+# the commands below give a hint on how to run fastqc in this script
+# you will need to look at the fastqc docs on the web to understand it
+# the mkdir commands make directories (folders) for storing the results and for temporary workspace
+# the command assumes the data file is in a folder called 'data'
+# as you extend the script to do more things you might thing about using shell variables to make file
+#       location and naming simpler, and loops over different data files
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407832 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407832.fastq.gz
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407833 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407833.fastq.gz
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407834 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407834.fastq.gz 
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407816 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407816.fastq.gz 
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407815 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407815.fastq.gz 
+
+/nobackup/leedsomics_tools/TrimGalore-0.6.6/trim_galore  -j 4 -o SRR7407814 --path_to_cutadapt /nobackup/leedsomics_tools/cutadapt data/SRR7407814.fastq.gz

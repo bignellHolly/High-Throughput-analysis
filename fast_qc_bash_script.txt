@@ -1,0 +1,31 @@
+#! /bin/bash
+#$ -S /bin/bash
+#$ -l h_rt=2:00:00
+#$ -l h_vmem=16G
+#$ -pe smp 8
+#$ -cwd
+#$ -j y
+#$ -V
+
+mkdir SRR7407814
+mkdir temp
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407814/fastqc -threads 4 -dir temp data/SRR7407814.fastq.gz
+
+mkdir SRR7407815
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407815/fastqc -threads 4 -dir temp data/SRR7407815.fastq.gz
+
+mkdir SRR7407816
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407816/fastqc -threads 4 -dir temp data/SRR7407816.fastq.gz
+
+mkdir SRR7407832
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407832/fastqc -threads 4 -dir temp data/SRR7407832.fastq.gz
+
+mkdir SRR7407833
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407833/fastqc -threads 4 -dir temp data/SRR7407833.fastq.gz
+
+mkdir SRR7407834
+/nobackup/leedsomics_workshop/tools/FastQC/fastqc SRR7407834/fastqc -threads 4 -dir temp data/SRR7407834.fastq.gz
+
+
+
+
